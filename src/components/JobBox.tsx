@@ -9,11 +9,13 @@ function JobBox({ job, setFilters }: { job: jobData, setFilters: React.Dispatch<
   const handleTagClick = (tag: string) => {
     setFilters((prev) => (prev.includes(tag) ? prev : [...prev, tag]));
   };
+
+  const base = import.meta.env.BASE_URL
   return (
     <>
       <div className={`bg-white shadow-md rounded p-6 flex flex-col md:flex-row md:items-center w-full ${job.featured && 'border-l-[5px] border-l-cyan-500  border-solid'}`}>
         <Avatar.Root>
-          <Avatar.Image src={`/images/${job.logo}`} alt={job.company} className="w-16 h-16 md:mr-6" />
+          <Avatar.Image src={`${base}images/${job.logo}`} alt={job.company} className="w-16 h-16 md:mr-6" />
           <Avatar.Fallback />
         </Avatar.Root>
         <div className="flex-1">

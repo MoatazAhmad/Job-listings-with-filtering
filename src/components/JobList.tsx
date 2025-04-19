@@ -1,17 +1,15 @@
-import React from 'react'
 import { useState, useEffect } from 'react'
 import { jobData } from '../types/api';
 import JobBox from './JobBox';
 import FilterBar from "./FilterBar"
-import { Skeleton } from '@radix-ui/themes';
 
 function JobList() {
   const [data, setData] = useState<jobData[] | null>(null);
   const [filters, setFilters] = useState<string[]>([])
-
+  const base = import.meta.env.BASE_URL
   useEffect(() => {
 
-    fetch('/data.json').then(res => {
+    fetch(`${base}data.json`).then(res => {
       if (!res.ok) {
         throw new Error("response is not ok")
       }

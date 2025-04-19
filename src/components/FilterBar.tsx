@@ -1,4 +1,3 @@
-import { Button } from "@radix-ui/themes";
 const FilterBar = ({ filters, setFilters }: {
   filters: string[];
   setFilters: React.Dispatch<React.SetStateAction<string[]>>;
